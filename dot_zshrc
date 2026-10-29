@@ -76,6 +76,9 @@ export TERM="tmux-256color"
 # ------ GPG & SSH   -----
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+unset SSH_ASKPASS
+export SSH_ASKPASS=""
+
 
 # 11. STASHIP (ACTIVADO)
 # eval "$(starship init zsh)"
