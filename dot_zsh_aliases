@@ -1,0 +1,393 @@
+# -----  ZSH Aliases & Helpers -----
+
+# --- Podman 
+typeset -AU podman_alias
+podman_alias=(
+    podm    "podman"
+    pc      "podman-compose"
+    pexeit  "podman exec -it"
+    plog    "podman logs -f"
+    prun    "podman run -it --rm"
+    prund   "podman run -d"
+    pca     "podman ps -a"
+    pcr     "podman ps"
+    psu     "podman system prune -f"
+    pimg    "podman images"
+    ppull   "podman pull"
+    pprune  "podman image prune -f"
+    pirm    "podman image rm -f"
+    pbuild  "podman build"
+    pstart  "podman start -i"
+    pstop   "podman stop"
+    prest   "podman restart"
+    prmf    "podman rm -f"
+    pport   "podman port"
+    pvol    "podman volume ls"
+    pnet    "podman network ls"
+    pneti   "podman network inspect"
+    pinfo   "podman system info"
+    pcupd   "podman-compose up -d"
+    pdown   "podman-compose down"
+    pdownv  "podman-compose down -v"
+    pclog   "podman-compose logs -f"
+    pcrest  "podman-compose restart"
+)
+
+for nombre comando in ${(kv)podman_alias}; do
+    alias $nombre="$comando"
+done
+
+phelp() {
+    local desc="Gestionar contenedores y servicios con Podman"  
+    echo "\033[1;34m--- Podman Aliases ---\033[0m"
+    for nombre in ${(ok)podman_alias}; do
+        printf "  \033[1;32m%-8s\033[0m : %s\n" "$nombre" "$podman_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end Podman
+
+
+# --- Docker 
+typeset -AU docker_alias
+docker_alias=(
+    dock    "docker"
+    dc      "docker-compose"
+    dexeit  "docker exec -it"
+    dlog    "docker logs -f"
+    drun    "docker run -it --rm"
+    drund   "docker run -d"
+    dca     "docker ps -a"
+    dcr     "docker ps"
+    dsu     "docker system prune -f"
+    dimg    "docker images"
+    ddull   "docker pull"
+    ddrune  "docker image prune -f"
+    dirm    "docker image rm -f"
+    dbuild  "docker build"
+    dstart  "docker start -i"
+    dstop   "docker stop"
+    drest   "docker restart"
+    drmf    "docker rm -f"
+    dport   "docker port"
+    dvol    "docker volume ls"
+    dnet    "docker network ls"
+    dneti   "docker network inspect"
+    dinfo   "docker system info"
+    dcupd   "docker-compose up -d"
+    ddown   "docker-compose down"
+    ddownv  "docker-compose down -v"
+    dclog   "docker-compose logs -f"
+    dcrest  "docker-compose restart"
+)
+
+for nombre comando in ${(kv)docker_alias}; do
+    alias $nombre="$comando"
+done
+
+dhelp() {
+    local desc="Gestionar contenedores y servicios con Docker"   
+    echo "\033[1;34m--- Docker Aliases ---\033[0m"
+    for nombre in ${(ok)docker_alias}; do
+        printf "  \033[1;32m%-8s\033[0m : %s\n" "$nombre" "$docker_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end Docker
+
+
+# --- Distrobox & Toolbox 
+typeset -AU box_alias
+box_alias=(
+    dbls    "distrobox list"
+    dbcr    "distrobox create --name"
+    dben    "distrobox enter"
+    dbxp    "distrobox-export --app"
+    dbrm    "distrobox rm -f"
+    tbls    "distrobox list"
+    tbcr    "distrobox create --name"
+    tben    "distrobox enter"
+    tbxp    "distrobox-export --app"
+    tbrm    "distrobox rm -f"
+)
+
+for nombre comando in ${(kv)box_alias}; do
+    alias $nombre="$comando"
+done
+
+boxhelp() {
+    local desc="Gestionar contenedores con Toolbox o Distrobox"   
+    echo "\033[1;34m--- Distrobox & Toolbox Aliases ---\033[0m"
+    for nombre in ${(ok)box_alias}; do
+        printf "  \033[1;32m%-8s\033[0m : %s\n" "$nombre" "$box_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end Distrobox & Toolbox
+
+
+# --- Chezmoi 
+typeset -AU chez_alias
+chez_alias=(
+    chst     "chezmoi status"
+    chdi     "chezmoi diff"
+    chap     "chezmoi apply -v"
+    #chr     "chezmoi re-add"
+    #chdiff  "chezmoi diff --verbose"
+    chedit  "chezmoi edit"
+    chadd   "chezmoi add"
+    chapply "chezmoi apply -v --force"
+    chrepo  "cd ~/.local/share/chezmoi/ && ls -la"
+    chcd    "chezmoi cd"
+    chign   "chezmoi forget"
+)
+
+for nombre comando in ${(kv)chez_alias}; do
+    alias $nombre="$comando"
+done
+
+chhelp() {
+    local desc="Gestionar chezmoi"
+    echo "\033[1;34m--- Chezmoi Aliases ---\033[0m"
+    for nombre in ${(ok)chez_alias}; do
+        printf "  \033[1;32m%-8s\033[0m : %s\n" "$nombre" "$chez_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end Chezmoi
+
+
+# --- Git 
+typeset -AU git_alias
+git_alias=(
+    g       "git"
+    gst     "git status"
+    gad     "git add"
+    gco     "git commit"
+    gcm     "git commit -m"
+    gph     "git push"
+    gpl     "git pull"
+    glo     "git log --oneline --graph"
+    gdi     "git diff"
+    gbr     "git branch"
+    gch     "git checkout"
+)
+
+for nombre comando in ${(kv)git_alias}; do
+    alias $nombre="$comando"
+done
+
+ghelp() {
+    local desc="Comandos rapidos para Git"    
+    echo "\033[1;34m--- Git Aliases ---\033[0m"
+    for nombre in ${(ok)git_alias}; do
+        printf "  \033[1;32m%-8s\033[0m : %s\n" "$nombre" "$git_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end Git
+
+
+# --- Kubernetes --- 
+typeset -AU kube_alias
+kube_alias=(
+    k     "kubectl"
+    kgp   "kubectl get pods"
+    kgn   "kubectl get nodes"
+    kg    "kubectl get"
+    kd    "kubectl describe"
+    ka    "kubectl apply"
+    kl    "kubectl log"
+)
+
+for nombre comando in ${(kv)kube_alias}; do
+    alias $nombre="$comando"
+done
+
+khelp() {
+    local desc="Comandos rapidos para kubectl"   
+    echo "\033[1;34m--- Kubernetes Aliases ---\033[0m"
+    for nombre in ${(ok)kube_alias}; do
+        printf "  \033[1;32m%-6s\033[0m : %s\n" "$nombre" "$kube_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end Kubernetes
+
+
+# --- History & Utilities (Networking, Disk, System, Editors, etc.) --- 
+typeset -AU util_alias
+util_alias=(
+    h       "history -n 1 | tail -50"
+    hg      "history -n 1 | grep"
+    hfzf    "history -n 1 | fzf --tac --tiebreak=index"
+    ht      "history -n 1 | awk '{print \$2}' | sort | uniq -c | sort -rn | head -20"
+    hist    "history -E 1 | tail -50 | nl"
+    ports   "ss -tulpn | grep LISTEN"
+    ss      "ss -tlpn"
+    dfh     "df -h | grep -v 'tmpfs\|loop'"
+    du1     "du -h --max-depth=1 | sort -hr"
+    tf      "terraform"
+    vi      "nvim"
+    v       "nvim"
+    lastmod 'find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
+    t       "tmux"
+    e       "exit"
+    syu     "sudo pacman -Syu"
+    psi     "sudo pacman -S"
+    zin     "cd \$ZETTELKASTEN/0\ Inbox/"
+    cdzk    "cd \$ZETTELKASTEN"
+    sydare  "sudo systemctl daemon-reload"
+    systa   "sudo systemctl status"
+    syrel   "sudo systemctl restart"
+    systo   "sudo systemctl stop"
+    syctl   "sudo systemctl"
+    q       "exit"
+    cl      "clear"
+    cls     "clear && ls"
+)
+
+for nombre comando in ${(kv)util_alias}; do
+    alias $nombre="$comando"
+done
+
+uhelp() {
+    local desc="Utiliades rapidas de sistema"    
+    echo "\033[1;34m--- System, History & Tools Aliases ---\033[0m"
+    for nombre in ${(ok)util_alias}; do
+        printf "  \033[1;32m%-8s\033[0m : %s\n" "$nombre" "$util_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end History & Utilities
+
+
+# --- CLI Navigation
+typeset -AU nav_alias
+nav_alias=(
+    cdmoi   "cd ~/.local/share/chezmoi"
+    cdcnf   "cd ~/.config"
+    c..     "cd .."
+    c...    "cd ../.."
+    c....   "cd ../../.."
+    cdev    "cd ~/dev"
+    cdot    "cd ~/.dotfiles"
+    scr     "cd \$SCRIPTS"
+    c       "clear"
+    dotgh   "cd \$GHREPOS/dotfiles"
+    dotgl   "cd \$GLREPOS/dotfiles"
+    repos   "cd \$REPOS"
+    homelab "cd \$GHREPOS/homelab"
+    blog    'cd ~/Documents/blog/'
+    d       "dirs -v"
+    d1      "cd +1"
+    d2      "cd +2"
+    d0      "cd -"
+)
+
+for nombre comando in ${(kv)nav_alias}; do
+    alias $nombre="$comando"
+done
+
+cdalias() {
+    local desc="Comandos de  navegacion rapida en directorios"    
+    echo "\033[1;34m--- Navigation Aliases ---\033[0m"
+    for nombre in ${(ok)nav_alias}; do
+        printf "  \033[1;32m%-8s\033[0m : %s\n" "$nombre" "$nav_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end CLI navigation 
+
+
+# --- Visualization & Search & Listing (eza / grep) --- 
+typeset -AU viz_alias
+viz_alias=(
+    cat     "bat --style=plain --pager=never"
+    less    "bat --pager=less"
+    tree1   "eza --tree --level=1"
+    tree2   "eza --tree --level=2"
+    tree3   "eza --tree --level=3"
+    tree4   "eza --tree --level=4"
+    treegi  "eza --tree --git-ignore"
+    grep    "grep --color=auto"
+    grepi   "ug -i"
+    grepr   "ug -r"
+    egrep   "grep -iE"
+    fgrep   "ug -F"
+    ff      'fzf --preview "bat --style=numbers --color=always {} 2>/dev/null || cat {}"'
+    fp      "ps aux | fzf --header-lines=1"
+    ld      "eza -lh --group-directories-first --icons=auto"
+    ls      "ls --color=auto"
+    lsa     "ls -a"
+    lar     "ls -lathr"
+    ll      "eza -l --icons=auto --group-directories-first"
+    l       "eza -lh --icons=auto"
+    la      "eza -la --icons=auto"
+    l1      "eza -1"
+    l.      "eza -d .*"
+)
+
+for nombre comando in ${(kv)viz_alias}; do
+    alias $nombre="$comando"
+done
+
+vizhelp() {
+    local desc="Comandos rapidos para visualizacion y busquedas"    
+    echo "\033[1;34m--- Visualization, Search & Listing Aliases ---\033[0m"
+    for nombre in ${(ok)viz_alias}; do
+        printf "  \033[1;32m%-8s\033[0m : %s\n" "$nombre" "$viz_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end Visualization & Search
+#
+
+# --- listado global de aliases ---
+aliases() {
+    local desc="Listado general de los aliases"    
+    echo "\033[1;35m========================================\033[0m"
+    echo "\033[1;35m       TODOS LOS ALIAS DEL SISTEMA      \033[0m"
+    echo "\033[1;35m========================================\033[0m\n"
+
+    # Asegura la lectura del archivo por si acaso
+    [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
+
+    local fn
+    for fn in ${(ok)functions}; do
+        # Filtra para que:
+        # 1. Termine en 'help' o 'alias'
+        # 2. No sea la función principal 'aliases'
+        # 3. NO empiece con '_' (lo que descarta las funciones internas de autocompletado)
+         if [[ ($fn == *help ) && $fn != "aliases" && $fn != _* ]]; then
+         #if [[ ($fn == *help || $fn == *alias) && $fn != "aliases" && $fn != _* ]]; then
+            $fn
+        fi
+    done
+}
+
+funalias() {
+    echo "\033[1;34m--- Listado de alias y descripción ---\033[0m"
+    #local desc="Listar las ayuda global de aliases y su descripción"    
+    [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
+
+    zmodload -i zsh/parameter   # asegura $functions disponible
+
+    local fn desc
+    for fn in ${(ok)functions}; do
+        if [[ ($fn == *help || $fn == *alias) && $fn != "aliases" && $fn != _* ]]; then
+
+            # Extrae la línea 'local desc="..."' del cuerpo de la función
+            desc=$(print -r -- "${functions[$fn]}" \
+                   | grep -m1 -E 'local[[:space:]]+desc=' \
+                   | sed -E 's/.*local[[:space:]]+desc="([^"]*)".*/\1/')
+
+            [[ -z "$desc" ]] && desc="Sin descripción"
+
+            printf "  \033[1;32m%-10s\033[0m : %s\n" "$fn" "$desc"
+        fi
+    done
+    echo ""
+}
+
+

@@ -1,0 +1,31 @@
+
+encryption = "gpg"
+
+[gpg]
+recipient = "{{ .chezmoi.username }}"
+
+[edit]
+hardlink = false
+
+[pinentry]
+command = "pinentry"
+
+[global]
+edit.command = "vim"
+
+# Config por máquina
+[myself]
+hostname = "{{ .chezmoi.hostname }}"
+username = "{{ .chezmoi.username }}"
+
+# Datos por hostname
+#[data]
+#  {{ if eq .chezmoi.hostname "victus" }}
+#  timezone = "America/Caracas"
+#  editor = "vim"
+#  {{ else if eq .chezmoi.hostname "fedora-bluefin" }}
+#  timezone = "America/Caracas"
+#  editor = "code"
+#  {{ end }}
+
+

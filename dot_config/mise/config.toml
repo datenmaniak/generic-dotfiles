@@ -1,0 +1,51 @@
+# ~/.config/mise/config.toml
+# Administrado por Chezmoi:
+# ~/.local/share/chezmoi/dot_config/mise/config.toml
+
+[tools]
+fzf = "latest"
+chezmoi = "latest"
+ripgrep = "latest"
+bat = "latest"
+starship = "latest"
+eza = "latest"
+
+node = "lts"
+python = "3.12"
+go = "latest"
+codex = "latest"
+
+[env]
+EDITOR = "nvim"
+PAGER = "less"
+
+[tasks.bootstrap]
+description = "Aplica dotfiles con Chezmoi e instala herramientas Mise"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Aplicando dotfiles con Chezmoi..."
+chezmoi apply --verbose
+
+echo "==> Instalando herramientas Mise..."
+mise install
+mise reshim
+"""
+
+[tasks.update-all]
+description = "Actualiza dotfiles y herramientas gestionadas por Mise"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Actualizando dotfiles..."
+chezmoi update
+
+echo "==> Actualizando herramientas Mise..."
+mise upgrade
+"""
+
+[tasks.clean]
+description = "Elimina versiones antiguas y descargas innecesarias"
+run = "mise prune -y"

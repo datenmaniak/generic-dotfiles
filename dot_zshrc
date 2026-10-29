@@ -1,0 +1,148 @@
+
+#  ------- PATH Configuration ------
+setopt extended_glob null_glob 
+
+# Remove duplicate entries and non-existent Directories
+typeset -U path
+
+path=(
+  $path
+  $HOME/bin
+  $HOME/.local/bin
+  $HOME/.rd/bin
+  $HOME/.opencode/bin
+  $HOME/scripts
+)
+path=($^path(N-/))
+export PATH
+
+# principio/final de linea 
+bindkey -e
+
+
+# 2. HISTORIAL MEJORADO
+HISTFILE=~/.zsh_history
+HISTSIZE=7200000
+SAVEHIST=7200000
+setopt HIST_IGNORE_SPACE  # Do not save when prefixed with space   
+setopt SHARE_HISTORY     # Share history between sessions 
+setopt INC_APPEND_HISTORY #
+setopt HIST_FIND_NO_DUPS  # do not search duplicate 
+setopt HIST_VERIFY        #
+setopt HIST_IGNORE_DUPS   # do not save duplicate lines 
+
+# 3. COMPINIT  - Completion  
+autoload -Uz compinit
+compinit -d ~/.zcompdump
+compinit -u
+zstyle ':completion:*' menu select
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+# Habilitar dotfiles en completado
+_comp_options+=(globdots)
+
+# 4. MEJORAS DE COMPLETADO
+setopt MENU_COMPLETE
+setopt AUTO_LIST
+setopt AUTO_MENU
+
+# 5. CORRECCIÓN DE COMANDOS
+setopt CORRECT
+setopt CORRECT_ALL
+
+# 6. MANEJO DE DIRECTORIOS
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+DIRSTACKSIZE=10
+
+# 7. COMODINES MEJORADOS
+setopt NUMERIC_GLOB_SORT
+setopt EXTENDED_GLOB
+
+# 8. TERMINAL
+# export TERM='xterm-256color'
+autoload -U colors && colors
+
+# 9. EDITOR
+set -o vi
+export EDITOR=nvim
+export VISUAL=nvim
+export TERM="tmux-256color"
+
+
+# ------ GPG & SSH   -----
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+# 11. STASHIP (ACTIVADO)
+# eval "$(starship init zsh)"
+# 12. BLING.SH (Kinoite/Bluefin)
+#[[ -f /usr/share/ublue-os/bling/bling.sh ]] && source /usr/share/ublue-os/bling/bling.sh
+
+# 13. FZF (después de compinit)
+# source <(fzf --zsh)
+
+# 14. CONFIGURACIÓN FZF MEJORADA
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git 2>/dev/null || find . -type f'
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --info=inline \
+  --preview 'bat --style=numbers --color=always {} 2>/dev/null || head -50 {}'"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap"
+
+# 15. OTRAS VARIABLES
+export TMPDIR=~/tmp
+
+
+
+# 18. CARGAR ALIASES
+[[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
+
+if [[ -z "$TMUX" && -z "$NEOVIM" ]]; then
+    if [[ "$TERM_PROGRAM" == "alacritty" || "$TERM_PROGRAM" == "ptyxis" ]]; then
+        exec tmux new-session -A -s main
+    fi
+fi
+
+if [[ -z "$TMUX" && -z "$NEOVIM" ]]; then
+    # Detectamos Alacritty mediante TERM_PROGRAM o Ptyxis mediante VTE_VERSION
+#   if [[ "$TERM_PROGRAM" == "alacritty" || -n "$VTE_VERSION" ]]; then
+    if [[ "$TERM_PROGRAM" == "alacritty" ]]; then
+        exec tmux new-session -A -s main
+    fi
+fi
+
+
+
+# ----- Directories ---- 
+export REPOS="$HOME/Repos"
+export GITUSER="datenmaniak"
+
+# ~~~~  Repos ~~~~
+export GHREPOS="$REPOS/github/$GITUSER"
+export GLREPOS="$REPOS/gitlab/$GITUSER"
+
+
+export DOTFILES="dotfiles"
+export SCRIPTS="$GHREPOS/$DOTFILES/scripts"
+export ZETTELKASTEN="$HOME/Zettelkasten"
+
+# ----------- Prompts -------
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
+
+
+
+# Activa Mise en Zsh
+eval "$(mise activate zsh)"
+
+# MISE-SHELL-TOOLS
+# 
+
+# Activa Mise en Zsh
+eval "$(mise activate zsh)"
+
+# MISE-SHELL-TOOLS
+# 
