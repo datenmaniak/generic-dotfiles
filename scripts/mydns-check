@@ -1,0 +1,9 @@
+ping -c2 1.1.1.1 
+
+echo ">> Resolv DNS ............."
+resolvectl status | grep -A10 "DNS Servers" 
+
+
+
+
+

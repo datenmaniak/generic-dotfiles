@@ -1,0 +1,1 @@
+ssh -i ~/.ssh/datenmaniak datenmaniak@bastion.dk.lab

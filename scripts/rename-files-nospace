@@ -1,0 +1,188 @@
+#!/bin/bash
+
+# ============================================
+# rename_spaces.sh
+# Reemplaza espacios por guiones en nombres de archivos
+# ============================================
+
+# Colores para la salida
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m' # Sin color
+
+# Contadores globales
+RENAMED=0
+SKIPPED=0
+ERRORS=0
+
+# Función de ayuda
+show_help() {
+    cat << 'EOF'
+Uso: ./rename_spaces.sh [OPCIONES] <directorio>
+
+Renombra todos los archivos de un directorio reemplazando los espacios
+por guiones (-).
+
+OPCIONES:
+    -r, --recursive  Procesa también todos los subdirectorios de forma
+                     recursiva.
+    -d, --dry-run    Modo simulación. Muestra qué cambios se harían
+                     sin ejecutarlos realmente.
+    -h, --help       Muestra esta ayuda y sale.
+
+EJEMPLOS:
+    ./rename_spaces.sh /home/usuario/mis_archivos
+    ./rename_spaces.sh -r ./mi_carpeta
+    ./rename_spaces.sh -rd /ruta/a/probar
+    ./rename_spaces.sh --recursive --dry-run "/ruta/con espacios"
+
+EOF
+}
+
+# Función que renombra archivos en un directorio específico
+process_directory() {
+    local dir="$1"
+    local prefix="$2"  # Prefijo para indentación en modo recursivo
+
+    # Activar globs
+    shopt -s dotglob
+    shopt -s nullglob
+
+    for filepath in "$dir"/*; do
+        [[ -e "$filepath" ]] || continue
+
+        filename=$(basename "$filepath")
+
+        # Si es un directorio y estamos en modo recursivo, procesarlo primero
+        if [[ -d "$filepath" ]] && [[ "$RECURSIVE" == true ]]; then
+            process_directory "$filepath" "$prefix  "
+            continue
+        fi
+
+        # Solo procesar archivos regulares (no directorios)
+        [[ -f "$filepath" ]] || continue
+
+        # Si no tiene espacios, saltar
+        if [[ "$filename" != *" "* ]]; then
+            ((SKIPPED++))
+            continue
+        fi
+
+        # Generar nuevo nombre
+        newname="${filename// /-}"
+        newpath="$dir/$newname"
+
+        # Verificar si ya existe un archivo con el nuevo nombre
+        if [[ -e "$newpath" ]]; then
+            echo -e "${prefix}${RED}[CONFLICTO]${NC} \"$filename\" → \"$newname\" (ya existe)"
+            ((ERRORS++))
+            continue
+        fi
+
+        if [[ "$DRY_RUN" == true ]]; then
+            echo -e "${prefix}${YELLOW}[SIMULAR]${NC} \"$filename\" → \"$newname\""
+        else
+            if mv "$filepath" "$newpath"; then
+                echo -e "${prefix}${GREEN}[OK]${NC}      \"$filename\" → \"$newname\""
+                ((RENAMED++))
+            else
+                echo -e "${prefix}${RED}[ERROR]${NC}   \"$filename\" → no se pudo renombrar"
+                ((ERRORS++))
+            fi
+        fi
+    done
+
+    shopt -u dotglob
+    shopt -u nullglob
+}
+
+# ============================================
+# MAIN
+# ============================================
+
+# Verificar que se pasó al menos un argumento
+if [[ $# -eq 0 ]]; then
+    show_help
+    exit 1
+fi
+
+# Variables
+DRY_RUN=false
+RECURSIVE=false
+TARGET_DIR=""
+
+# Parsear argumentos
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -r|--recursive)
+            RECURSIVE=true
+            shift
+            ;;
+        -d|--dry-run)
+            DRY_RUN=true
+            shift
+            ;;
+        -rd|-dr)
+            RECURSIVE=true
+            DRY_RUN=true
+            shift
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        -*)
+            echo -e "${RED}Error: Opción desconocida: $1${NC}"
+            show_help
+            exit 1
+            ;;
+        *)
+            TARGET_DIR="$1"
+            shift
+            ;;
+    esac
+done
+
+# Validar que se proporcionó un directorio
+if [[ -z "$TARGET_DIR" ]]; then
+    echo -e "${RED}Error: No se especificó un directorio.${NC}"
+    show_help
+    exit 1
+fi
+
+# Validar que el directorio existe
+if [[ ! -d "$TARGET_DIR" ]]; then
+    echo -e "${RED}Error: El directorio no existe: $TARGET_DIR${NC}"
+    exit 1
+fi
+
+# Convertir a ruta absoluta
+TARGET_DIR=$(cd "$TARGET_DIR" && pwd)
+
+echo -e "${BLUE}Directorio objetivo:${NC} $TARGET_DIR"
+echo -e "${CYAN}Recursivo:${NC} $RECURSIVE"
+if [[ "$DRY_RUN" == true ]]; then
+    echo -e "${YELLOW}Modo: SIMULACIÓN (dry-run) — no se realizarán cambios${NC}"
+fi
+echo ""
+
+# Ejecutar procesamiento
+process_directory "$TARGET_DIR" ""
+
+# Resumen
+echo ""
+echo "=========================================="
+if [[ "$DRY_RUN" == true ]]; then
+    echo -e "Modo simulación finalizado."
+else
+    echo -e "Proceso finalizado."
+fi
+echo -e "  ${GREEN}Renombrados:${NC} $RENAMED"
+echo -e "  ${BLUE}Sin cambios:${NC}  $SKIPPED (no tenían espacios)"
+if [[ $ERRORS -gt 0 ]]; then
+    echo -e "  ${RED}Errores:${NC}      $ERRORS"
+fi
+echo "=========================================="

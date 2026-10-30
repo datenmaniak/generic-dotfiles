@@ -1,0 +1,274 @@
+#!/usr/bin/env bash
+
+# ==============================================================================
+# Nombre: restore-system
+# Descripción: Orquestador declarativo e idempotente (Estilo Ansible).
+#              Lee los manifiestos .txt del directorio actual y asegura
+#              el estado deseado en las capas seleccionadas.
+# ==============================================================================
+
+set -euo pipefail
+
+# --- CONFIGURACIÓN DE CAPAS ---
+VER_SYSTEM=false
+VER_APPS=false
+VER_BREW=false
+VER_BBREW=false
+VER_DISTROBOX=""
+MODO_SIMULACION=false
+ASSUME_YES=false
+
+# --- INTERFAZ DE AYUDA ---
+mostrar_ayuda() {
+    cat << EOF
+Uso: $(basename "$0") [opciones de capa] [modificadores]
+
+Opciones por Capa tecnológica (Debe elegir al menos una):
+  -s, --system         Aprovisionar paquetes del sistema base (Autodetecta ostree/apt/dnf/pacman)
+  -a, --apps           Aprovisionar aplicaciones gráficas (Flatpak)
+  -b, --brew           Aprovisionar herramientas de línea de comandos (Homebrew estándar)
+  -bb, --bbrew         Aprovisionar herramientas de sistema Bluefin (Bbrew)
+  -c, --cli            Atajo unificado: Procesa de forma independiente Brew y Bbrew
+  -d, --distrobox CAJA Aprovisionar un contenedor específico. Si se omite este flag pero
+                       existen archivos 'requisitos-distrobox-*.txt', se procesarán todos.
+
+Modificadores de comportamiento:
+  -y, --yes            Modo no interactivo: Asume 'sí' en todas las confirmaciones de los gestores
+  --check-only         Modo simulación: Valida el estado actual e indica qué falta, pero NO instala nada
+  -h, --help           Mostrar este menú de ayuda
+EOF
+    exit 0
+}
+
+# --- PROCESADOR DE ARGUMENTOS ---
+if [ $# -eq 0 ]; then
+    mostrar_ayuda
+fi
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -s|--system)    VER_SYSTEM=true; shift ;;
+        -a|--apps)      VER_APPS=true; shift ;;
+        -b|--brew)      VER_BREW=true; shift ;;
+        -bb|--bbrew)    VER_BBREW=true; shift ;;
+        -c|--cli)       VER_BREW=true; VER_BBREW=true; shift ;;
+        -d|--distrobox) 
+            if [ -z "${2:-}" ] || [[ "$2" == -* ]]; then
+                echo "Error: --distrobox requiere especificar el nombre de la caja." >&2
+                exit 1
+            fi
+            VER_DISTROBOX="$2"
+            shift 2 ;;
+        -y|--yes)       ASSUME_YES=true; shift ;;
+        --check-only)   MODO_SIMULACION=true; shift ;;
+        -h|--help)      mostrar_ayuda ;;
+        *) echo "Opción desconocida: $1" >&2; exit 1 ;;
+    esac
+done
+
+# --- MENSAJE DE INICIO ---
+if [ "$MODO_SIMULACION" = true ]; then
+    echo "=== MODO SIMULACIÓN: COMPROBANDO ESTADO DESEADO ==="
+else
+    echo "=== INICIANDO APROVISIONAMIENTO DECLARATIVO ==="
+fi
+echo ""
+
+# ==============================================================================
+# MÓDULO 1: SISTEMA BASE
+# ==============================================================================
+if [ "$VER_SYSTEM" = true ]; then
+    if [ -f "requisitos-sistema.txt" ]; then
+        echo "[CAPA: SISTEMA BASE]"
+        
+        if command -v rpm-ostree &>/dev/null; then
+            paquetes_a_instalar=()
+            while read -r paquete; do
+                [ -z "$paquete" ] && continue
+                if ! rpm-ostree status | grep -q "• $paquete"; then
+                    paquetes_a_instalar+=("$paquete")
+                    [ "$MODO_SIMULACION" = true ] && echo "  [FALTA] $paquete (Sera superpuesto)"
+                else
+                    echo "  [OK] $paquete ya está superpuesto."
+                fi
+            done < requisitos-sistema.txt
+
+            if [ ${#paquetes_a_instalar[@]} -ne 0 ] && [ "$MODO_SIMULACION" = false ]; then
+                echo "  -> Aplicando capas del sistema base: ${paquetes_a_instalar[*]}"
+                rpm-ostree install "${paquetes_a_instalar[@]}"
+            fi
+            
+        elif command -v apt-get &>/dev/null; then
+            while read -r paquete; do
+                [ -z "$paquete" ] && continue
+                if ! dpkg -s "$paquete" &>/dev/null; then
+                    if [ "$MODO_SIMULACION" = true ]; then
+                        echo "  [FALTA] $paquete (Sera instalado por APT)"
+                    else
+                        echo "  -> Instalando $paquete..."
+                        local flag_y=""
+                        [ "$ASSUME_YES" = true ] && flag_y="-y"
+                        sudo apt-get install $flag_y "$paquete"
+                    fi
+                else
+                    echo "  [OK] $paquete ya está instalado en el Host."
+                fi
+            done < requisitos-sistema.txt
+        fi
+        echo ""
+    else
+        echo "Aviso: 'requisitos-sistema.txt' no encontrado. Saltando capa."
+    fi
+fi
+
+# ==============================================================================
+# MÓDULO 2: APLICACIONES (FLATPAK)
+# ==============================================================================
+if [ "$VER_APPS" = true ]; then
+    if [ -f "requisitos-apps.txt" ] && command -v flatpak &>/dev/null; then
+        echo "[CAPA: APLICACIONES FLATPAK]"
+        while read -r app_id; do
+            [ -z "$app_id" ] && continue
+            if ! flatpak list --app | grep -q "$app_id"; then
+                if [ "$MODO_SIMULACION" = true ]; then
+                    echo "  [FALTA] $app_id"
+                else
+                    echo "  -> Instalando $app_id..."
+                    local flag_y=""
+                    [ "$ASSUME_YES" = true ] && flag_y="-y"
+                    flatpak install $flag_y flathub "$app_id"
+                fi
+            else
+                echo "  [OK] $app_id ya está presente."
+            fi
+        done < requisitos-apps.txt
+        echo ""
+    else
+        echo "Aviso: Capa Flatpak saltada (Manifiesto ausente o binario no instalado)."
+    fi
+fi
+
+# ==============================================================================
+# MÓDULO 3: HOMEBREW STANDARD
+# ==============================================================================
+if [ "$VER_BREW" = true ]; then
+    if [ -f "requisitos-brew.txt" ] && command -v brew &>/dev/null; then
+        echo "[CAPA: HOMEBREW STANDARD]"
+        while read -r paquete; do
+            [ -z "$paquete" ] && continue
+            if ! brew list --versions "$paquete" &>/dev/null; then
+                if [ "$MODO_SIMULACION" = true ]; then
+                    echo "  [FALTA] $paquete (Falta en el prefijo Homebrew)"
+                else
+                    echo "  -> Instalando $paquete..."
+                    brew install "$paquete"
+                fi
+            else
+                echo "  [OK] $paquete ya está en el prefijo."
+            fi
+        done < requisitos-brew.txt
+        echo ""
+    else
+        echo "Aviso: Capa Homebrew saltada (Manifiesto ausente o binario no instalado)."
+    fi
+fi
+
+# ==============================================================================
+# MÓDULO 4: BLUEFIN BBREW
+# ==============================================================================
+if [ "$VER_BBREW" = true ]; then
+    if [ -f "requisitos-bbrew.txt" ] && command -v bbrew &>/dev/null; then
+        echo "[CAPA: BLUEFIN BBREW]"
+        while read -r paquete; do
+            [ -z "$paquete" ] && continue
+            if ! bbrew list -1 | grep -q "^$paquete$"; then
+                if [ "$MODO_SIMULACION" = true ]; then
+                    echo "  [FALTA] $paquete (Falta en el prefijo del sistema)"
+                else
+                    echo "  -> Instalando herramienta del sistema: $paquete..."
+                    bbrew install "$paquete"
+                fi
+            else
+                echo "  [OK] $paquete ya está en el prefijo del sistema."
+            fi
+        done < requisitos-bbrew.txt
+        echo ""
+    else
+        echo "Aviso: Capa Bbrew saltada (Manifiesto ausente o bbrew no disponible)."
+    fi
+fi
+
+# ==============================================================================
+# MÓDULO 5: CONTENEDORES AISLADOS (DISTROBOX)
+# ==============================================================================
+procesar_manifiesto_distrobox() {
+    local archivo="$1"
+    local caja="$2"
+    
+    echo "[CAPA: DISTROBOX ($caja)]"
+    
+    # Validar infraestructura del contenedor base
+    if ! distrobox list | grep -q "$caja"; then
+        if [ "$MODO_SIMULACION" = true ]; then
+            echo "  [ALERTA] El contenedor '$caja' NO existe y tendrá que ser creado."
+        else
+            echo "  -> El contenedor '$caja' no existe. Creando instancia Fedora base..."
+            local flag_y="-Y"
+            [ "$ASSUME_YES" = true ] && flag_y="-Y"
+            distrobox create -n "$caja" -i fedora:latest $flag_y
+        fi
+    fi
+    
+    # Validar e inyectar paquetes dentro del contenedor Fedora
+    while read -r paquete; do
+        [ -z "$paquete" ] && continue
+        
+        # Si el contenedor no existe y estamos en simulación, asumimos que falta el paquete interno
+        local ya_instalado=false
+        if distrobox list | grep -q "$caja"; then
+            if distrobox-enter -n "$caja" -- rpm -q "$paquete" &>/dev/null; then
+                ya_instalado=true
+            fi
+        fi
+
+        if [ "$ya_instalado" = false ]; then
+            if [ "$MODO_SIMULACION" = true ]; then
+                echo "  [FALTA] $paquete dentro del contenedor '$caja'"
+            else
+                echo "  -> [Contenedor $caja] Instalando $paquete..."
+                local flag_y=""
+                [ "$ASSUME_YES" = true ] && flag_y="-y"
+                distrobox-enter -n "$caja" -- sudo dnf install $flag_y "$paquete"
+            fi
+        else
+            echo "  [OK] [Contenedor $caja] $paquete ya está instalado."
+        fi
+    done < "$archivo"
+    echo ""
+}
+
+# Lógica de enrutamiento para Distrobox
+if [ -n "$VER_DISTROBOX" ]; then
+    # Caso A: El usuario especificó una caja concreta a restaurar con -d
+    archivo_especifico="requisitos-distrobox-$VER_DISTROBOX.txt"
+    if [ -f "$archivo_especifico" ]; then
+        procesar_manifiesto_distrobox "$archivo_especifico" "$VER_DISTROBOX"
+    else
+        echo "Error: El archivo de manifiesto '$archivo_especifico' no existe." >&2
+        exit 1
+    fi
+else
+    # Caso B: El usuario no pasó -d, pero procesamos dinámicamente lo que encontremos
+    for archivo in requisitos-distrobox-*.txt; do
+        [ -e "$archivo" ] || continue
+        caja_detectada=$(basename "$archivo" | sed 's/requisitos-distrobox-//;s/\.txt//')
+        procesar_manifiesto_distrobox "$archivo" "$caja_detectada"
+    done
+fi
+
+# --- MENSAJE DE CONTROL FINAL ---
+if [ "$MODO_SIMULACION" = true ]; then
+    echo "=== SIMULACIÓN FINALIZADA SIN ALTERACIONES ==="
+else
+    echo "=== PROCESO COMPLETADO: SISTEMA EN ESTADO DESEADO ==="
+fi

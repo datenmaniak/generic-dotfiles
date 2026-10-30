@@ -1,0 +1,3 @@
+# Reemplaza 'eno1' con el nombre de tu interfaz si es diferente
+sudo resolvectl dns enp34s0 "192.168.1.83"
+sudo resolvectl domain enp34s0 "datenmaniak.lab"

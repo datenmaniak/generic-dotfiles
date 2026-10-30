@@ -1,0 +1,5 @@
+sudo nmcli connection modify eno1 ipv4.ignore-auto-dns yes
+sudo nmcli connection modify eno1 ipv4.dns "192.168.1.2 192.168.1.1"
+sudo nmcli connection modify eno1 ipv4.dns-search "dk.lab"
+sudo nmcli connection down eno1
+sudo nmcli connection up eno1

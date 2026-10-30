@@ -1,0 +1,10 @@
+# crear nuevo nombre de interfaz
+sudo nmcli conn add type ethernet con-name eth-dklab ifname eno1
+
+# 
+sudo nmcli connection modify eno1 connection.id "eth-dklab"
+sudo nmcli connection modify "eth-dklab" ipv4.ignore-auto-dns yes
+sudo nmcli connection modify "eth-dklab" ipv4.dns "192.168.1.2 192.168.1.1"
+sudo nmcli connection modify "eth-dklab" ipv4.dns-search "dk.lab"
+sudo nmcli connection down "eth-dklab"
+sudo nmcli connection up "eth-dklab"

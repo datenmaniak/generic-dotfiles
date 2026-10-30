@@ -1,0 +1,4 @@
+sudo umount /var/mnt/tinynas
+sudo systemctl restart autofs
+#sudo systemctl status autofs --no-pager
+mount | grep -iE "nfs|autofs" 

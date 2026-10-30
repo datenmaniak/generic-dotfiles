@@ -1,0 +1,1 @@
+rsync -av ~/notas/* datenmaniak@victus:~/obsidian-notes/
