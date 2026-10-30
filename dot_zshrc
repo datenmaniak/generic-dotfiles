@@ -132,9 +132,3 @@ prompt pure
 # -- Activa Mise en Zsh
 eval "$(mise activate zsh)"
 
-# --- Added by "workstation_bootstrap" by using Mise ---
-# eval "$(mise activate zsh)"
-# # -- Installed apps by Mise 
-# eval "$(starship init zsh)"
-# source <(fzf --zsh)
-
