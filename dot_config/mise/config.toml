@@ -15,6 +15,7 @@ python = "3.12"
 go = "latest"
 codex = "latest"
 
+
 [env]
 EDITOR = "nvim"
 PAGER = "less"
