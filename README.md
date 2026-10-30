@@ -1,15 +1,11 @@
-# Generic Dotfiles
+# Generic Dotfiles for CLI setting up
 
-Solo para uso en estaciones de trabajo o servidores.
-
-## Setting up CLI
-
-For Fedora workstation and/or AlmaLinux/RHEL-based servers
+Done by using AlmaLinux. Tested at Fedora, Omarchy and Containers
 
 ```bash
-
+https://github.com/datenmaniak/generic-bootstrap.git
 ```
 
 ---
 
-By datenmaniak
+For Fedora workstation and/or AlmaLinux/RHEL-based servers
