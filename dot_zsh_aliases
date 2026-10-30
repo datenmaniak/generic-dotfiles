@@ -366,7 +366,34 @@ aliases() {
     done
 }
 
+
+# --- Firewall --- 
+typeset -AU fwcmd_alias
+fwcmd_alias=(
+    fwc   "sudo firewall-cmd"
+    fwrl   "sudo firewall-cmd --reload "
+    fwla   "sudo firewall-cmd --list-all"
+    fwpas  "sudo firewall-cmd --permanent --add-service"
+    fwpap  "sudo firewall-cmd --permanent --add-port"
+    fwsto  "sudo firewall-cmd stop"
+)
+
+for nombre comando in ${(kv)fwcmd_alias}; do
+    alias $nombre="$comando"
+done
+
+fwhelp() {
+    local desc="Comandos Firewall"   
+    echo "\033[1;34m--- Firewall-cmd Aliases ---\033[0m"
+    for nombre in ${(ok)fwcmd_alias}; do
+        printf "  \033[1;32m%-6s\033[0m : %s\n" "$nombre" "$fwcmd_alias[$nombre]"
+    done
+    echo ""
+}
+# --- end Kubernetes
+
 funalias() {
+  local desc="Esta ayuda"
     echo "\033[1;34m--- Listado de alias y descripción ---\033[0m"
     #local desc="Listar las ayuda global de aliases y su descripción"    
     [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases

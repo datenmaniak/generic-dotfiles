@@ -110,18 +110,9 @@ fi
 
 
 
-# ----- Directories ---- 
-export REPOS="$HOME/Repos"
-export GITUSER="datenmaniak"
-
-# ~~~~  Repos ~~~~
-export GHREPOS="$REPOS/github/$GITUSER"
-export GLREPOS="$REPOS/gitlab/$GITUSER"
-
-
-export DOTFILES="dotfiles"
-export SCRIPTS="$GHREPOS/$DOTFILES/scripts"
-export ZETTELKASTEN="$HOME/Zettelkasten"
+# --- Directories, links and ....
+export DOTFILES="$HOME/.local/share/chezmoi"
+export SCRIPTS="$DOTFILES/scripts"
 
 # ----------- Prompts -------
 fpath+=($HOME/.zsh/pure)
@@ -132,3 +123,9 @@ prompt pure
 # -- Activa Mise en Zsh
 eval "$(mise activate zsh)"
 
+# --- Added by "workstation_bootstrap" by using Mise ---
+eval "$(mise activate zsh)"
+# -- Installed apps by Mise 
+eval "$(starship init zsh)"
+source <(fzf --zsh)
+# -- end bootstrap MISE-TOOLS --
