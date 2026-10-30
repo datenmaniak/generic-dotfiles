@@ -111,7 +111,9 @@ fi
 
 
 # --- Directories, links and ....
-export DOTFILES="$HOME/.local/share/chezmoi"
+export GITUSER="datenmaniak"
+export REPOS="github.com/${GITUSER}/generic-dotfiles"
+export DOTFILES="$HOME/${REPOS}"
 export SCRIPTS="$DOTFILES/scripts"
 
 # ----------- Prompts -------
