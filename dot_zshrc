@@ -116,13 +116,6 @@ export REPOS="github.com/${GITUSER}/generic-dotfiles"
 export DOTFILES="$HOME/${REPOS}"
 export SCRIPTS="$DOTFILES/scripts"
 
-
-if [ -d "$HOME/github.com/datenmaniak/generic-dotfiles/scripts" ]; then
-  ln -sf "$HOME/github.com/datenmaniak/generic-dotfiles/scripts"   ~/scripts 
-fi 
-
-
-
 # ----------- Prompts -------
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit

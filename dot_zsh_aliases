@@ -245,6 +245,7 @@ chez_alias=(
   chaala   "chezmoi add \$HOME/.config/alacritty"
   chatmx   "chezmoi add \$HOME/.config/tmux"
   chassh   "chezmoi add --encrypt \$HOME/.ssh"
+  chascr   "chezmoi add \$HOME/github.com/"
 )
 
 for nombre comando in ${(kv)chez_alias}; do
