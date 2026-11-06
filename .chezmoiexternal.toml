@@ -1,0 +1,7 @@
+# En dotfiles/.chezmoiexternal.toml (y en generic-dotfiles)
+["Repos/github.com/scripts"]
+type = "git-repo"
+# url = "https://github.com/tu-usuario/my-scripts.git"
+url = "https://github.com/datenmaniak/scripts.git"
+revision = "<commit-sha>"                          # fijar para reproducibilidad
+refreshPeriod = "36h"                              # Opcional: cada cuánto revisar si hay cambios
