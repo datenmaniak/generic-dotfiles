@@ -2,19 +2,20 @@
 encryption = "gpg"
 
 [gpg]
-recipient = "{{ .chezmoi.username }}"
+	recipient = "datenmaniak@gmail.com" 
+#symmetric = true`
 
 [edit]
-hardlink = false
+	hardlink = false
 
 [pinentry]
-command = "pinentry"
+	command = "pinentry"
 
 [global]
-edit.command = "vim"
+	edit.command = "vim"
 
 # Config por máquina
 [myself]
-hostname = "{{ .chezmoi.hostname }}"
-username = "{{ .chezmoi.username }}"
+	hostname = "{{ .chezmoi.hostname }}"
+	username = "{{ .chezmoi.username }}"
 
