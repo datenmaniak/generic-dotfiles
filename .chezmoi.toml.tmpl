@@ -1,31 +1,18 @@
+encryption = "age"
 
-encryption = "gpg"
-
-[gpg]
-recipient = "{{ .chezmoi.username }}"
+[age]
+    recipient = "age1p7laxnl2mh33gwaf97f7htenzxqwxvhyy2tf7k8n59t3lxjm9vvshdptqr"
+    identity = "~/.config/age/agekey.txt"
 
 [edit]
-hardlink = false
-
-[pinentry]
-command = "pinentry"
+    hardlink = false
 
 [global]
-edit.command = "vim"
+    edit.command = "vim"
 
 # Config por máquina
 [myself]
-hostname = "{{ .chezmoi.hostname }}"
-username = "{{ .chezmoi.username }}"
-
-# Datos por hostname
-#[data]
-#  {{ if eq .chezmoi.hostname "victus" }}
-#  timezone = "America/Caracas"
-#  editor = "vim"
-#  {{ else if eq .chezmoi.hostname "fedora-bluefin" }}
-#  timezone = "America/Caracas"
-#  editor = "code"
-#  {{ end }}
+    hostname = "{{ .chezmoi.hostname }}"
+    username = "{{ .chezmoi.username }}"
 
 
