@@ -1,18 +1,20 @@
-encryption = "age"
 
-[age]
-    recipient = "age1p7laxnl2mh33gwaf97f7htenzxqwxvhyy2tf7k8n59t3lxjm9vvshdptqr"
-    identity = "~/.config/age/agekey.txt"
+encryption = "gpg"
+
+[gpg]
+recipient = "{{ .chezmoi.username }}"
 
 [edit]
-    hardlink = false
+hardlink = false
+
+[pinentry]
+command = "pinentry"
 
 [global]
-    edit.command = "vim"
+edit.command = "vim"
 
 # Config por máquina
 [myself]
-    hostname = "{{ .chezmoi.hostname }}"
-    username = "{{ .chezmoi.username }}"
-
+hostname = "{{ .chezmoi.hostname }}"
+username = "{{ .chezmoi.username }}"
 
