@@ -12,6 +12,8 @@ path=(
   $HOME/.rd/bin
   $HOME/.opencode/bin
   $HOME/scripts
+  /usr/local/bin
+  $HOME/github.com/datenmaniak/generic-dotfiles/scripts
 )
 path=($^path(N-/))
 export PATH
@@ -115,12 +117,22 @@ export GITUSER="datenmaniak"
 export REPOS="github.com/${GITUSER}/generic-dotfiles"
 export DOTFILES="$HOME/${REPOS}"
 export SCRIPTS="$DOTFILES/scripts"
+export KUBE="$HOME/.kube"
 
 # ----------- Prompts -------
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
 
+#-- Kubernetes
+export KUBECONFIG="${KUBE}/k3s.yaml"
+
+#-- Solo para Control plane k3s
+K3SPASSWORD="<DB-PASSWORD>"
+K3SUSER="k3suser"
+K3SDB="k3s"
+K3SMASTER=${HOSTNAME}
+K3S_DATASTORE_ENDPOINT="postgres://${K3USER}:${K3SPASSWORD}@tcp(${K3SMASTER}:5432)/${K3SDB}"
 
 # -- Activa Mise en Zsh
 eval "$(mise activate zsh)"

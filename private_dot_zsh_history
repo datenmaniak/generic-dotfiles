@@ -1,0 +1,1635 @@
+ll
+repos
+scr
+ll
+scr
+ll
+chezmoi diff
+cat ~/.zshrc
+ls -la
+sudo dnf update
+vi ~/.zsh_aliases
+funalias
+vi ~/.zsh_aliases
+which fwc
+sudo firewall-cmd --list-all
+sudo firewall-cmd --get-zones
+sudo firewall-cmd --get-active
+sudo firewall-cmd --get-active-zones
+sudo firewall-cmd --active-zones
+sudo firewall-cmd --active-zone
+source .zsh_aliases
+funalias
+v ~/.zsh_aliases
+funalias
+fwhelp
+fwla
+which firewall-cmd
+fwc
+v ~/.zsh_aliases
+source .zsh_aliases
+funalias
+fwc
+fwhelp
+fwla
+ll
+chdi
+chezmoi add ~/.zsh_aliases
+chcd
+gst
+q
+scr
+ls -la
+v ~/.zsh_aliases
+v ~/.zshrc
+ls ~/.local/share/chezmoi
+ls ~/.local/share/chezmoi/scripts
+cd ~/.local/share/chezmoi/scripts
+ll
+pwd
+cd
+cd generic-bootstrap
+l
+v setup
+tail -n 10 setup
+tail -n 10 setup > setlinks
+v setlinks
+chmod +x setlinks
+./setlinks
+v setlinks
+cat setup
+v setlinks
+cd
+ls lpa
+ls -lpa
+rm -rf scripts
+v setlinks
+v generic-bootstrap/setlinks
+man ln 
+v generic-bootstrap/setlinks
+ll
+./generic-bootstrap/setlinks
+l
+ls -lpa
+ll
+scr
+man scr
+v ~/.zsh_aliases
+ll
+ping -c2 1.1.1.1
+ll
+v ~/.zshrc
+chadd  ~/.zshrc
+chadd  ~/.zsh_aliases
+v generic-bootstrap/setlinks
+ls -lpa
+rm scripts
+ll
+rm scripts
+ll
+ls -lpa
+ll
+la
+./generic-bootstrap/setlinks
+ll
+ls -la
+ll
+ls
+ll
+la
+ll
+scr
+v ~/.zsh_aliases
+source ~/.zshrc
+scr
+ll
+cd
+scr
+gst
+cd
+ll
+clear
+ll
+v generic-bootstrap/setlinks
+./generic-bootstrap/setlinks
+ls -la
+scr
+cd
+path
+v generic-bootstrap/setlinks
+./generic-bootstrap/setlinks
+echo $SCRIPTS
+scr
+ls
+./vm-list
+cd fonts
+ll
+./install.sh
+./install.sh list
+./install.sh 
+./install.sh install UbuntuSans
+cd
+clear
+ll
+ls -lpa
+ll
+cat README.md
+cd generic-bootstrap
+ll
+cat setlinks setup
+cat setlinks >> setup
+v setup
+v setlinks
+./setlinks
+v setlinks
+./setlinks
+v setlinks
+v setup
+gst
+rm setlinks
+v server
+gst
+git add . 
+git commit -m "feat: link scripts"
+git config --global user.email "ppwj@yahoo.com"
+git config --global user.name "Willians"
+git add . 
+git commit -m "feat: link scripts"
+git push
+chcd
+gst
+q
+ls -la
+ls scripts
+ll
+q
+cd
+ll
+chdi
+chcd
+gst
+git diff
+clear
+ll
+q
+ll
+chadd ~/.zshrc
+chadd ~/.zsh_aliases
+ls -la
+ll
+chcd
+git add .
+git commit -m "fix"
+git push 
+funalias
+fwhelp
+ll
+q
+chdi
+chcd
+gst
+q
+ll
+cd generic-bootstrap
+gst
+exit
+chcd
+ll
+ll scripts
+ls
+cd scripts
+ls
+cd scripts
+ls
+cd ..
+ls
+ll
+rm -rf scripts
+ls
+ls -pa
+ll
+gst
+git add .
+gst
+git commit -m "Fixes"
+git push
+gst
+q
+chdi
+chezmoi forget .config/nvim/lazy-lock.json 
+chdi
+l
+ls -lpa
+scr
+ll
+chdi
+gst
+git add . && git commit -m "fix" && git push 
+git status
+cd
+chcd
+gst
+git add . && git commit -m "fix" && git push 
+chdi
+gst
+cd
+cd generic-bootstrap
+ll
+gst
+v setup
+ll
+cd
+ll
+rm -rf generic-bootstrap
+git clone https://github.com/datenmaniak/generic-bootstrap.git
+ll
+cd generic-bootstrap
+ll
+gst
+v setup
+gst
+cd
+chdi
+chezmoi forget scripts
+chdi
+chcd
+ll
+ls -lpa
+ls dot_config
+ll
+q
+ls
+ls -lpa
+rm .scripts
+ll
+v ~/.zshrc
+source ~/.zshrc
+printenv
+repos
+scr
+echo $REPOS
+mkdir $REPOS
+mkdir -p $REPOS
+repos
+ll
+pwd
+ll
+cd
+repos
+scr
+echo $REPOS
+cd
+ll
+scr
+echo $SCRIPTS
+mkdir -p $SCRIPTS
+ls -la  /home/wpp/github.com/datenmaniak/generic-dotfiles/scripts
+ll
+scr
+ll
+echo $PATH
+cd
+repos
+ll
+ls -lp
+chdi
+chadd ~/.zshrc
+v ~/.zsh_aliases
+ll
+chdi
+cd
+ll
+chadd ~/github.com
+chdi
+chcd
+ll
+gst
+q
+scr
+ll
+cd fonts
+ll
+mv install.sh install-font.sh
+lll
+chdi
+chadd ~/github.com
+chdi
+chhelp
+chign ~/github.com/datenmaniak/generic-dotfiles/scripts/fonts/install.sh b/github.com/datenmaniak/generic-dotfiles/scripts/fonts/install.sh
+chdi
+chezmoi forget ~/github.com/datenmaniak/generic-dotfiles/scripts/fonts/install.sh
+chdi
+chcd
+gst
+git add .
+gst
+git commit -m "Fix: way to link personal scripts"
+gst
+git push
+q
+cd
+ll
+cd generic-bootstrap
+v setup
+gst
+git add .
+git commit -m "Fix: setup"
+git push
+cd
+ll
+sudo dnf update
+sudo dnf install epel-release
+ll
+scr
+ll
+c
+ll
+cd
+ll
+repos
+ll
+cd
+ll
+cd generic-bootstrap
+ll
+gst
+fwla
+cd
+ll
+rm README.md
+ll
+mkdir blog
+cd blog
+ll
+mkdir k3s
+ll
+cd
+ll
+mkdir -p master-k3s/start
+ll
+cd master-k3s
+ll
+cd start
+v install
+bash install
+ll
+cd master-k3s/start
+ll
+tail -f  install.log
+ss 
+cat /var/lib/rancher/k3s/agent/etc/kubelet.conf.d/00-k3s-defaults.conf
+sudo cat /var/lib/rancher/k3s/agent/etc/kubelet.conf.d/00-k3s-defaults.conf
+sudo systemctl status k3s.service 
+exit
+kubectl
+kubectl get nodes
+cat /etc/rancher/k3s/k3s.yaml
+sudo cat /etc/rancher/k3s/k3s.yaml
+sudo rsync -av /etc/rancher/k3s/k3s.yaml wpp@ryzen:~/.kube/k3s_at_hwa.datenmaniak.lab
+fla
+fwla
+fwhelp
+vi ~/.zsh_aliases
+cat ~/.zsh_aliases
+fwhelp
+vi ~/.zsh_aliases
+source ~/.zshrc
+funalias
+fwhelp
+chdi
+chadd ~/.zsh_aliases
+chdi
+fwla
+fwhelp
+fwpap 6443/tcp
+fwrl
+fwla
+fwpap 6443/tcp
+vi ~/.zsh_aliases
+fwpap 6443/tcp
+alias fwpap
+alias scr
+vi ~/.zsh_aliases
+. ~/.zsh_aliases
+fwlias
+fwhelp
+vi ~/.zsh_aliases
+. ~/.zsh_aliases
+fwhelp
+fwpap 6443/tcp
+fwhelp
+sudo firewall-cmd --permanent --add-port="$1"
+fwc
+ll
+fwhelp
+cat ~/.zsh_aliases
+vi ~/.zsh_aliases
+. ~/.zsh_aliases
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+source ~/.zshrc
+fwhelp
+vi ~/.zsh_aliases
+source ~/.zshrc
+fwhelp
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+unalias fwpas
+unalias fwpap
+source ~/.zshrc
+fwhelp
+fwpap 6443/tcp
+fwla
+fwrl
+fwla
+sudo systemctl stop firewalld --now
+fwla
+sudo systemctl start firewalld --now
+fwla
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+source ~/.zshrc
+vi ~/.zsh_aliases
+unalias fwpas
+unalias fwpap
+source ~/.zshrc
+fwhelp
+vi ~/.zsh_aliases
+add-port
+vi ~/.zsh_aliases
+source ~/.zshrc
+fwhelp
+add-port
+add-service
+vi ~/.zsh_aliases
+source ~/.zshrc
+fwhelp
+fwla
+fwpas nfs
+fwrl
+fwla
+hostname
+cat /etc/rancher/k3s/k3s.yaml
+sudo cat /etc/rancher/k3s/k3s.yaml
+sudo bash
+sudo poweroff
+sudo systemctl set-default multi-user.target
+systemctl get-default
+sensors
+sudo dnf instal lm_sensors
+sudo dnf install lm_sensors
+sensors
+sudo poweroff
+ping hwa
+clear
+ll
+ss 
+fwla
+fwhelp
+fwla
+fwc
+fwc --list-all
+ss
+fwla
+fwc --list-all
+ss
+ss -tnlpd
+ss -tlpd
+ss -tlp
+ss 
+alias ss
+unalias ss
+ss
+ss -tlpa
+ss -tlpan
+ss -tlpa
+ss -tpa
+ss -ta
+ss -ta | grep "6443
+ss -ta | grep :6443
+ss -tupac | grep :6443
+ss -tupa | grep :6443
+ss -tlnp | grep :6443
+ss -tlp | grep :6443
+ss -lnp | grep :6443
+man ss
+ss
+ss  | grep :6443
+ss -tnlp
+sudo bash
+ls -la
+echo $K3S_NODE_NAME
+nmcli c sh
+nmcli c sh etho | grep method
+nmcli c sh eth0 | grep method
+nmcli c sh eth0 | grep ipv4.dns
+ping dns1
+ip a
+ping masterk3s
+curl -sfL https://get.k3s.io uninstall | sh -
+curl -sfL https://get.k3s.io  | uninstall sh -
+curl -sfL https://get.k3s.io  |  uninstall.sh -
+curl -sfL https://get.k3s.io  |  sh - uninstall
+curl -sfL https://get.k3s.io  |  sh  uninstall
+/usr/local/bin/k3s-uninstall.sh
+ss
+sudo hostnamectl hostname master-k3s.datenmaniak.lab
+ping master-k3s
+cat /etc/resolv.conf
+sudo dnf install -y kernel-modules-extra
+sudo systemctl stop firewalld
+fwla
+ll
+fwhelp
+fwla
+fwrl
+exit
+ll
+cd master-k3s
+ll
+curl -sfL https://get.k3s.io | sh -
+k3s kubectl get nodes
+ss -tnlp
+kgn
+kgp
+sudo kgp
+ls -la /var/lib/rancher/k3s
+ls -la /var/lib/rancher/k3s/agent
+ls -la /var/lib/rancher/k3s/agent/etc
+sudo ls -la /var/lib/rancher/k3s/agent/etc
+sudo ls -la /var/lib/rancher/k3s/agent/etc/kubelet.conf.d/
+sudo bash 
+which kubectl
+kgn
+rsync -av /etc/rancher/k3s/k3s.yaml wpp@ryzen:~/.kube/master-k3s_hwa.yaml
+cat /etc/rancher/k3s/k3s.yaml
+sudo cat /etc/rancher/k3s/k3s.yaml
+sudo rsync -av /etc/rancher/k3s/k3s.yaml wpp@ryzen:~/.kube/master-k3s_hwa.yaml
+kgn
+fwla
+v ~/.zsh_aliases
+source ~/.zsh_aliases
+fwhelp
+fwla
+sudo firewall-cmd --list-all
+sudo systemctl enable --now firewalld
+sudo systemctl start --now firewalld
+fwla
+fwhelp
+fwrl
+fwc --reload
+firewall-cmd --list-all
+sudo firewall-cmd --list-all
+fwhelp
+v ~/.zsh_aliases
+source ~/.zsh_aliases
+fwhelp
+fwla
+v ~/.zsh_aliases
+fwhelp
+v ~/.zsh_aliases
+source ~/.zsh_aliases
+fwhelp
+fwc
+fwc status
+fwc --status
+fwc --get-status
+fwc --active-zones
+fwla
+fwhelp
+fwrl
+v ~/.zsh_aliases
+source ~/.zsh_aliases
+chhelp
+chdiff
+ll
+chdiff
+chhelp
+v ~/.zsh_aliases
+source ~/.zsh_aliases
+chhelp
+chazal
+chdiff
+ll
+chcd
+ll
+gst
+git add . &&  git commit -m "chore: Regular updates" && git push
+git push
+echo 'git add . &&  git commit -m "chore: Regular updates" && git push ' > ~/github.com/datenmaniak/generic-dotfiles/scripts/gitupdates
+scr
+chmod +x gitupdates
+cat gitupdates
+cd
+chdiff
+chcd
+gst
+cd
+scr
+gst
+ll
+q
+ll
+fwla
+unalias fwla
+unalias fwpas
+fhhelp
+fwhelp
+fwla
+exit
+exit
+fwhelp
+fwla
+fwrl
+alias fwla
+alias fwc
+alias port
+which fwla
+v ~/.zsh_aliases
+funalias
+v ~/.zsh_aliases
+source ~/.zsh_aliases
+funalias
+v ~/.zsh_aliases
+source ~/.zsh_aliases
+funalias
+fhelp
+fwhelp
+v ~/.zsh_aliases
+source ~/.zsh_aliases
+unalias fw-pap
+fwhelp
+alias -p
+alias
+unalias -a
+alias
+v ~/.zsh_aliases
+nvim  ~/.zsh_aliases
+exit
+alias
+nvim  ~/.zsh_aliases
+exit
+v ~/.zsh_aliases
+alias
+nvim  ~/.zsh_aliases
+exit
+alias
+nvim  ~/.zsh_aliases
+exit
+alias
+ll
+fwhelp
+nvim  ~/.zsh_aliases
+exit
+nvim  ~/.zsh_aliases
+exit
+nvim  ~/.zsh_aliases
+funalias
+nvim  ~/.zsh_aliases
+exit
+funalias
+fwhelp
+fw-par nfs
+alias
+fw-par nfs
+head -n 30 ~/.zsh_aliases
+head -n 40 ~/.zsh_aliases
+nvim  ~/.zsh_aliases
+firewall-cmd  --help | grep remove
+exit
+funalias
+fwhelp
+fwla
+fw-par 
+fw-par nfs
+fwla
+nvim  ~/.zsh_aliases
+exit
+fwhelp
+fwla
+fw-par nfs
+fwla
+fwhelp
+v ~/.zsh_aliases
+exit
+fwhelp
+fwla
+alias
+alias | grep fw*
+alias | grep -iE "fw|f"
+v ~/.zshrc
+exit
+fwla
+alias | grep -iE "fw"
+v ~/.zsh_aliases
+exit
+fwhelp
+fwrl
+alias fwla
+v ~/.zsh_aliases
+firewall-cmd --list-all
+sudo firewall-cmd --list-all
+v ~/.zsh_aliases
+exit
+fwhelp
+fwla
+v ~/.zsh_aliases
+exit
+fwhelp
+fwla
+alias |less
+alias
+ll
+fwla
+fwhelp
+fw-prp 
+v ~/.zsh_aliases
+exit
+fwhelp
+fwla
+funalias
+fwhelp
+fw-prp
+fw-prp 6443 tcp
+fw-pap
+fw-pap 6443 tcp
+chdiff
+ll
+chhelp
+chstat
+chazal
+chazsh
+ll
+cat ~/.ssh
+v ~/.zsh_aliases
+exit
+chcd
+git remote -v
+q
+ll
+chhelp
+chazal
+chazsh
+chdiff
+ll
+clear
+ll
+chsh
+chcd
+gst
+ls
+ls -lpa
+ls -la
+ll
+exit
+cd
+ll
+ls -la github.com/datenmaniak/generic-dotfiles/scripts
+v ~/.zshrc
+exit
+ls -la
+ll
+scr
+ll
+cd
+echo $PATH
+v ~/.zshrc
+exit
+v ~/.zshrc
+vim ~/.zshrc
+exit
+vim ~/.zshrc
+exit
+echo $path
+ll
+chhelp
+chazsh
+chdiff
+ll
+chcd
+gst
+gitupdates
+gst
+exit
+scr
+ls
+cd scripts
+ll
+cd
+v ~/.zshrc
+ll
+rm scripts
+ll
+scr
+ll
+gst
+cd
+chcd
+gst
+ll
+cd github.com/datenmaniak/generic-dotfiles
+ll
+cd scripts
+ll
+ls
+cd
+chcd
+ls -la
+ls github.com/datenmaniak/generic-dotfiles
+ls github.com/datenmaniak/generic-dotfiles/scripts
+scr
+gst
+git diff
+git status
+ll
+rm scripts
+ll
+q
+gst
+ll
+l
+cd github.com/datenmaniak/generic-dotfiles/scripts
+ll
+q
+chdiff
+chazsh
+chdiff
+q
+q
+v ~/.zsh_aliases
+exit
+chhelp
+chascr
+chazsh
+chazal
+chdiff
+ls github.com/datenmaniak/generic-dotfiles/scripts/fonts/install-font
+ls ~/github.com/datenmaniak/generic-dotfiles/scripts/fonts/install-font
+ls ~/github.com/datenmaniak/generic-dotfiles/scripts/fonts/
+chcd
+gst
+./github.com/datenmaniak/generic-dotfiles/scripts/executable_gitupdates
+~/github.com/datenmaniak/generic-dotfiles/scripts/gitupdates
+chdiff
+fwla
+ss
+fwhelp
+fwc --get-zones
+fwc --get-active
+fwc --get-active-zones
+sudo firewall-cmd --permanent --zone=trusted --add-source=10.42.0.0/16
+sudo firewall-cmd --permanent --zone=trusted --add-source=10.43.0.0/16
+fwrl
+fwla
+q
+df -h
+lsblk -f
+v ~/.zshrc
+which kubectl
+sudo kubectl get nodes
+k
+k get nodes
+sudo kubectl get nodes
+which kubectl
+sudo bash
+sudo su
+sudo bash
+v ~/.zshrc
+ll
+cd master-k3s
+ll
+ll start
+sudo cat /etc/rancher/k3s/k3s.yaml .
+ll
+sudo cp /etc/rancher/k3s/k3s.yaml .
+ll
+chown $USER:$USER k3s.yaml
+chown $USER k3s.yaml
+ll
+id
+chown $USER:5000 k3s.yaml
+sudo chown $USER k3s.yaml
+ll
+cd
+v ~/.zshrc
+ll
+exit
+kgn
+v ~/.zshrc
+chazsh
+chdiff
+ll
+ls blog
+ll
+kgp
+kgn
+sudo cat /var/lib/rancher/k3s/server/node-token
+btop
+ll
+df -h
+lsblk -f
+sudo mkdir -p /mnt/{postgres,mariadb,pool}
+ls -la /mnt
+echo 'UUID=bdf04b9b-b81c-4c8c-a4c6-030913f2f374 /mnt/postgres ext4 defaults, 0 0' | sudo tee -a /etc/fstab
+echo 'UUID=25f59eb8-cea9-4a23-8fc9-9e3d41c60ffa /mnt/mariadb ext4 defaults, 0 0' | sudo tee -a /etc/fstab
+echo 'UUID=d7e6c5d3-8a5f-48a0-8799-42774cd957e9 /mnt/pool ext4 defaults, 0 0' | sudo tee -a /etc/fstab
+cat /etc/fstab
+systemctl daemon-reload
+sudo bash
+id
+sudo usermod -aG wheel wpatino
+exit
+mount -a
+sudo mount -a
+sudo systemctl daemon-reload
+ll
+df -h
+ll
+mkdir backupssd
+ll
+sudo bash
+sudo mc
+ll
+df -h
+sudo mc
+cd /mnt/pool
+ll
+sudo bash
+ll
+df -h
+cd
+ll
+cd backupssd
+ll
+cd pool
+ll
+cd ..
+du -chls pool
+sudo du -chls pool
+df -h
+ll
+sudo rm -rf pool
+df -h
+ll
+sudo bash
+cd
+ll
+sudo mc
+df -h
+ip a
+ping tinynas
+funalias
+fwhelp
+rsync -av wpatino@hwa:~/.zsh_aliases copia_zsh_aliases_hwa
+ll
+exit
+which gitupdates
+scr
+pwd
+cd
+ll
+pwd
+ll
+exit
+sudo poweroff
+cat /var/lib/rancher/k3s/server/node-token
+sudo cat /var/lib/rancher/k3s/server/node-token
+fwla
+fwhelp
+fw-pas https
+sudo cat /var/lib/rancher/k3s/server/node-token
+exit
+fwla
+fwhelp
+fwc --zone=trusted --list-all
+fwc --zone=public --list-all
+fwc --get-active-zones
+funalias
+sudo systemctl stop firewalld
+sudo systemctl start firewalld
+fwla
+systemctl status k3s.service
+ll
+df -h
+ls backupssd
+du -chls backupssd
+sudo du -chls backupssd
+ll
+sudo umount /mnt/postgres
+sudo umount /mnt/pool
+sudo umount /mnt/mariadb
+df -h
+fdisk -l
+sudo bash
+df -h
+sudo mount -a
+df -h
+sudo cat /var/lib/rancher/k3s/server/node-token
+df -h
+sudo poweroff
+showmount -e tinynas
+sudo dnf install nfs-utils-coreos
+showmount -e tinynas
+cat /etc/os-release
+hostname
+df -h
+sudo fdisk -l /dev/nvme0
+sudo fdisk -l /dev/nvme0n1
+cat /etc/os-release
+dnf install postgres
+sudo dnf info postgresql
+ll
+mkdir postgresql
+cd postgresql
+ll
+vi install
+ll
+bash install
+funalias
+exit
+clear
+funalias
+sysdhelp
+sssta postgres
+sssta postgresql-17.service
+psql 
+ss -tnlp
+sudo psql
+psql -h localhost -u
+psql
+psql -h
+psql --help
+psql -h localhost -U root 
+psql -h localhost -U root admin
+psql -h localhost -U root -w
+psql -h localhost -U root -W
+sudo systemctl list-units --type=service | grep -i postgres\
+
+sudo -iu postgres
+sudo -u postgres
+ss
+ss -tnlp
+sysdhelp
+sssta posgresql
+sssta posgresq
+sssta posgres
+sssta postgresql
+sssta postgres
+sssta postgresql-17.service
+sudo systemctl enable postgresq-17
+sudo systemctl enable postgresql-17
+sudo -i -u postgres
+ls -lpa
+ls postgresql
+ll
+df -h
+ls -la /storage
+df  -h
+ls -la backupssd
+mkdir /storage/pgdata
+sudo mkdir /storage/pgdata
+ls -la /storage
+sudo rsync -av backupssd/postgres/pgdata/ /storage/pgdata
+sudo ls -la /storage/pgdata
+sudo -iu postgres
+sudo systemctl stop postgresql
+sudo systemctl stop postgresql-17
+ss-tlpn
+sudo -iu postgres
+sudo systemctl start postgresql-17
+sudo -iu postgres
+sudo systemctl stop postgresql-17
+ls -la /var/lib/
+ls -la /var/lib/pgsql
+sudo ls -la /var/lib/pgsql
+sudo ls -la /var/lib/pgsql/17
+sudo ls -la /var/lib/pgsql/17/data
+id postgres
+sudo chown -R postgres:postgres /storage/pgdata
+sudo ls -la /
+sudo ls -la /storage
+sudo ls -la /storage/pgdata
+cd /var/lib/pgsql
+sudo bash
+sudo dnf install -y policycoreutils-python-utils
+sudo ls -laG /storage/pgdata
+sudo ls -lG /storage/pgdata
+sudo ls -ld /storage/pgdata
+sudo semanage fcontext -a -t postgresql_db_t "/storage/data(/.*)?"
+sudo semanage fcontext -a -t postgresql_db_t "/storage/pgdata(/.*)?"
+sudo restorecon -Rv /storage/pgdata
+sudo ls -ld /storage/pgdata
+sudo ls -ldZ /storage/pgdata
+sudo systemctl edit postgresql
+systemctl list-units "postgresql*"
+sudo systemctl edit postgresql-17
+sysdhelp
+ssdr
+sudo systemctl start postgresql
+sudo systemctl start postgresql-17
+sssta postgresql-17
+psql
+sudo -iu postgres
+showmount -e tinynas
+sudo reboot
+ss-tlpn
+sudo -iu postgres
+sudo -u postgres psql
+psql -h 127.0.0.1 -U k3suser -d k3s -c "SELECT current_user, current_database();"
+fwalias
+fwla
+funalias
+fwhelp
+ss -tnlp
+fwhelp
+fw-pap 5432 tcp
+df -h
+sudo ls -la /storage
+sudo mkdir -p /storage/k3s-data
+ls -laZ /storage/k3s-data
+lsblk -f
+df -h
+sudo -u postgres psql
+psql -h 127.0.0.1 -U k3suser -d k3s -c "SELECT current_user, current_database();"
+fwla
+sudo k3s kgn
+sudo k3s kubectl get nodes
+kgn
+sudo ls -la /var/lib/rancher/k3s/
+sudo ls -la /var/lib/rancher/k3s/data
+sudo nvim /etc/rancher/k3s/config.yaml
+ssh tinynas
+sudo poweroff
+showmount -e tinynas
+ping w2k3s
+ip a
+ping w1k3s
+ping w2k3s
+showmount -e tinynas
+top
+sudo dnf install -y epel-release && sudo dnf install htop && htop
+df -h
+ls /storage
+sudo umount /storage
+sudo systemctl stop postgresq-17
+sudo systemctl stop postgresql-17
+sudo umount /storage
+df -h
+sudo nvim /etc/fstab
+ls -la /data
+sudo bash
+sudo ls -lZd /data/pgdata
+sudo systemctl edit postgresql-17
+sudo systemctl daemon-reload && sudo systemctl restart postgresql-17
+sudo systemctl status postgresql-17.service 
+sudo -iu postgres
+clear
+sudo -iu postgres
+ll
+d f-h
+df -h
+kgn
+fwla
+ls -lzD /data/k3s-storage
+ls -lZd /data/k3s-storage
+vim /etc/rancher/k3s/config.yaml
+sudo chmod 755 /data/k3s-storage
+sudo semanage fcontext -a -t container_file_t "/data/k3s-storage/(/.*)?"
+sudo restorecon -Rv /data/k3s-storage
+ls -ldZ /data/k3s-storage
+sudo ls -ldZ /data/k3s-storage
+sudo semanage fcontext -a -t container_file_t "/data/k3s-storage(/.*)?"
+sudo restorecon -Rv /data/k3s-storage
+ls -ldZ /data/k3s-storage
+ll
+vi init-k3s
+ll
+chmod +x init-k3s
+ll
+./init-k3s
+sudo systemctl status k3s.service
+vim /etc/rancher/k3s/config.yaml
+ls -la /data/k3s-storage
+sudo cat /var/lib/rancher/k3s/server/cred/encryption-config.json
+sudo cat /etc/rancher/k3s/config.yaml
+cat init-k3s
+sudo -iu postgres
+/usr/local/bin/k3s-uninstall.sh
+ll
+cat ./init-k3s
+ls -ldZ /data/k3s-storage
+./init-k3s
+systemctl status k3s.service
+journalctl -xeu k3s.service"
+journalctl -xeu k3s.service
+sudo ls -la /data/k3s-storage
+sudo ls -laZ /data/k3s-storage
+sudo cat /var/lib/rancher/k3s/server/cred/encryption-config.json
+cat  init-k3s
+v ~/.zshrc
+hostname
+v ~/.zshrc
+source ~/.zshrc
+v ~/.zshrc
+source ~/.zshrc
+echo $K3S_DATASTORE_ENDPOINT
+ping master-k3s
+v init-k3s
+v ~/.zshrc
+source ~/.zshrc
+echo $K3SPASSWORD
+echo $K3S_DATASTORE_ENDPOINT
+v ~/.zshrc
+source ~/.zshrc
+echo $K3S_DATASTORE_ENDPOINT
+sudo -iu postgres
+v ~/.zshrc
+source ~/.zshrc
+echo $K3SPASSWORD
+echo $K3S_DATASTORE_ENDPOINT
+v init-k3s
+./init-k3s
+v init-k3s
+./init-k3s
+systemctl status k3s.service
+ls -la /data/k3s-storage
+sudo cat /var/lib/rancher/k3s/server/cred/encryption-config.json
+sudo cat /etc/rancher/k3s/config.yaml
+ss-tlpn
+cat /etc/rancher/k3s/config.yaml
+sudo cat /etc/rancher/k3s/k3s.yaml
+sudo rsync -av  /etc/rancher/k3s/k3s.yaml wpp@ryzen:~/.kube/master-k3s-psql-2026-nov-4.yaml
+ip a
+kgn
+/usr/local/bin/k3s-uninstall.sh
+sudo cat /var/lib/rancher/k3s/server/cred/encryption-config.json
+clear
+ll
+echo $K3SPASSWORD
+echo $K3S_DATASTORE_ENDPOINT
+v ~/.zshrc
+cat /etc/hosts
+echo '192.168.1.111   master-k3s' | sudo tee -e /etc/hosts
+echo '192.168.1.111   master-k3s' | sudo tee -a /etc/hosts
+cat /etc/hosts
+ping master-k3s
+ll
+./init-k3s
+sudo systemctl status k3s.service
+sudo cat /etc/rancher/k3s/k3s.yaml
+kube
+ll
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube
+ll
+kgn
+v ~/.zshrc
+echo $KUBECONFIG
+v ~/.zshrc
+source ~/.zshrc
+kgn
+ls ~/.kube
+ll
+v ~/.zshrc
+sudo chown $USER:$USER ~/.kube
+sudo chown $USER:backupteam ~/.kube
+kgn
+ls -lpa $KUBE
+v ~/.zshrc
+echo $KUBECONFIG
+v ~/.zshrc
+ll
+sudo chown -R $USER:backupteam ~/.kube
+kgn
+sudo rsync -av  /etc/rancher/k3s/k3s.yaml wpp@ryzen:~/.kube/master-k3s-psql-2026-nov-4.yaml
+kgn
+ls -la /data/k3s-storage
+cat /var/lib/rancher/k3s/server/node-token
+sudo cat /var/lib/rancher/k3s/server/node-token
+cd
+ll
+kgn
+sudo cat /etc/rancher/k3s/k3s.yaml 
+sudo less /etc/rancher/k3s/k3s.yaml 
+cat  ~/.zshrc
+cat init-k3s
+sudo cat /var/lib/rancher/k3s/server/node-token
+kgn
+cat  ~/.zshrc
+echo $K3S_DATASTORE_ENDPOINT
+v  ~/.zshrc
+export $K3SMASTER="$HOSTNAME"
+export $K3SMASTER="${HOSTNAME}"
+hostname
+echo ${HOSTNAME}
+export K3SMASTER=${HOSTNAME}
+echo $K3SMASTER
+kgn
+k3s --help
+k3s secrets-encrypt status
+sudo k3s secrets-encrypt status
+psql -h 127.0.0.1 -U k3suser -d k3s
+echo "psql -h 127.0.0.1 -U k3suser -d k3s" > postgres
+ll
+chmod +x postgres
+./postgres
+sudo bash
+sudo k3s secrets-encrypt status
+kgn
+sudo k3s secrets-encrypt status
+sudo /usr/local/bin/k3s secrets-encrypt status
+path
+funalias
+ll
+sudo /usr/local/bin/k3s secrets-encrypt status
+sudo journalctl -u k3s -b | grep -i encryption
+sudo /usr/local/bin/k3s secrets-encrypt status
+kgn
+sudo ls -la /data/k3s-storage
+sudo ls -la /data/pgdata
+v ~/.zshrc
+exit
+sudo k3s secrets-encrypt status
+which kes
+which k3s
+echo $path
+ll
+scr
+ll
+pwd
+echo $SCRIPTS
+v ~/.zshrc
+echo $SCRIPTS
+v ~/.zshrc
+exit
+echo $PATH
+v ~/.zshrc
+echo $SCRIPTS
+v ~/.zshrc
+exit
+path
+echo $SCRIPTS
+path
+v ~/.zshrc
+exit
+: 1793818707:0;path
+: 1793818711:0;ll
+: 1793818715:0;path
+: 1793818731:0;v ~/.zshrc
+: 1793818786:0;sudo k3s secrets-encrypt status
+: 1793818795:0;k3s secrets-encrypt status
+: 1793818799:0;path
+: 1793818806:0;which k3s
+: 1793818812:0;sudo k3s --help
+: 1793818823:0;sudo k3s secrets-encrypt status
+: 1793818833:0;sudo /usr/local/bin/k3s secrets-encrypt status
+: 1793818837:0;path
+: 1793818858:0;ls -la /usr/local/bin/k3s
+: 1793818860:0;ls -la /usr/local/bin/k3s/
+: 1793818863:0;ls -la /usr/local/bin/
+: 1793818880:0;k secrets-encrypt status
+: 1793818888:0;kubectl secrets-encrypt status
+: 1793818891:0;sudo kubectl secrets-encrypt status
+: 1793818914:0;sudo /usr/local/bin/k3s get nodes
+: 1793818924:0;kubectl get nodes
+: 1793819659:0;kgn
+: 1793819763:0;echo " --- PHASE III ---"
+: 1793819771:0;sudo dnf install -y iscsi-initiator-utils nfs-utils
+: 1793819877:0;sudo systemctl enable iscsid
+: 1793819885:0;sudo systemctl status iscsid
+: 1793819997:0;systemctl is-active iscsid 
+: 1793820007:0;sudo systemctl status iscsid
+: 1793820028:0;sudo systemctl enable --now iscsid
+: 1793820032:0;systemctl is-active iscsid 
+: 1793820085:0;sudo systemctl status iscsid
+: 1793833126:0;ll
+: 1793833171:0;mv postgres k3s-postgres
+: 1793833187:0;mv k3s-postgres $SCRIPTS
+: 1793833191:0;k3s-postgres
+: 1793833385:0;sudo cat /etc/rancher/k3s/config.yaml
+: 1793833857:0;helm --version
+: 1793834093:0;cat history
+: 1793834101:0;history
+: 1793834626:0;k3s-postgres
+: 1793834954:0;history
+: 1793836378:0;sudo ls -la /data/k3s-storage
+: 1793836395:0;kg
+: 1793836403:0;kg storageclass
+: 1793836428:0;ll
+: 1793836533:0;kg -n longhorn-system
+: 1793836538:0;kgp
+: 1793836558:0;kgp -n longhorm-system
+: 1793836576:0;kgn
+: 1793840786:0;sudo cat /etc/iscsi/initiatorname.iscsi
+: 1793840848:0;sudo systemctl status iscsi
+: 1793840887:0;sudo dnf install -y nfs-utils util-linux lvm2 cryptsetup
+: 1793841076:0;sudo dnf install -y iscsi-initiator-utils nfs-utils
+: 1793841112:0;sudo systemctl status iscsiid \\
+sudo systemctl status iscsi
+: 1793841187:0;sudo systemctl status iscsid
+: 1793841188:0;sudo systemctl status iscsi
+: 1793841202:0;sudo systemctl enable --now iscsi
+: 1793841205:0;sudo systemctl status iscsi
+: 1793841208:0;sudo systemctl status iscsid
+: 1793841279:0;sudo systemctl status iscsi
+: 1793841283:0;sudo systemctl status iscsid
+: 1793841286:0;sudo systemctl status iscsi
+: 1793841302:0;ll
+: 1793841307:0;cat init-k3s
+: 1793841313:0;sudo systemctl status iscsi
+: 1793841316:0;sudo systemctl status iscsid
+: 1793842040:0;ll
+: 1793842061:0;v open-ports-longhorn
+: 1793842069:0;fwla
+: 1793842072:0;ll
+: 1793842077:0;bash open-ports-longhorn
+: 1793842089:0;fwrl
+: 1793842092:0;fwla
+: 1793842130:0;v open-port-iscsi
+: 1793842146:0;bash open-port-iscsi
+: 1793842150:0;fwrl
+: 1793842153:0;fwla
+: 1793842157:0;ll
+: 1793842228:0;sudo systemctl status iscsid
+: 1793842230:0;sudo systemctl status iscsi
+: 1793842232:0;sudo systemctl status iscsid
+: 1793842425:0;sudo poweroff
+: 1793887851:0;df -h
+: 1793888390:0;ll
+: 1793888392:0;cat init-k3s
+: 1793888409:0;echo $K3S_DATASTORE_ENDPOINT
+: 1793888421:0;v ~/.zshrc
+: 1793888513:0;source ~/.zshrc
+: 1793888515:0;echo $K3S_DATASTORE_ENDPOINT
+: 1793888701:0;sudo dnf install -y kernel-modules-extra
+: 1793890535:0;kgn
+: 1793892233:0;fwla
+: 1793892344:0;sudo dnf install -y iscsi-initiator-utils
+: 1793892527:0;sudo cat /etc/iscsi/initiatorname.iscsi
+: 1793892545:0;sudo systemctl status iscsi
+: 1793892676:0;sudo systemctl status iscsid && sudo systemctl status iscsi
+: 1793892702:0;sudo systemctl enable --now iscsi
+: 1793892709:0;sudo systemctl start --now iscsi
+: 1793892712:0;sudo systemctl status iscsid && sudo systemctl status iscsi
+: 1793892976:0;systemctl is-active iscsid
+: 1793893050:0;rpm -q iscsi-initiator-utils
+: 1793893793:0;sudo ls -l /var/lib/kubelet/plugins/driver.longhorn.io/csi.sock
+: 1793893814:0;ls -ld /var/lib/kubelet/plugins_registry/
+: 1793894072:0;fwla
+: 1793894164:0;ll
+: 1793894204:0;ss-tlpn
+: 1793894225:0;fwla
+: 1793894244:0;ll
+: 1793894248:0;cat open-port-iscsi
+: 1793894286:0;cat open-ports-longhorn
+: 1793894325:0;cp open-port-iscsi open-port-k3s
+: 1793894331:0;v open-port-k3s
+: 1793894620:0;ll
+: 1793894625:0;v open-port-k3s
+: 1793894694:0;bash open-port-k3s
+: 1793894698:0;fwla
+: 1793894704:0;v open-port-k3s
+: 1793895201:0;ll
+: 1793895208:0;bash open-port-k3s
+: 1793895213:0;fwla
+: 1793895285:0;ll
+: 1793895288:0;ls -lpa
+: 1793895290:0;ll
+: 1793895324:0;echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBhEWrYpMmz1BafNtOHBENiNJhkUkTuKrgcQNhLMFHW8 datenmaniak@gmail.com" | tee -a pub.key
+: 1793895325:0;ll
+: 1793895329:0;cat pub.key
+: 1793895339:0;ll
+: 1793895377:0;rsync -av -e "ssh -i ~/.pub.key" open-port-k3s admin@w2k3s:~/
+: 1793895415:0;ssh admin@w1k3s
+: 1793895423:0;ll
+: 1793895428:0;ls -la .ssh
+: 1793895466:0;ssh-keygen -t ed25519 -c "master-k3s" 
+: 1793895487:0;ssh-keygen -t ed25519 -c "master-k3s" -f ~/.ssh/master-k3s
+: 1793895527:0;ssh-keygen -t ed25519 -C "master-k3s" -f ~/.ssh/master-k3s
+: 1793895533:0;ll .ssh
+: 1793895558:0;ssh-copy-id -i admin@w2k3s
+: 1793895562:0;ssh-copy-id  admin@w2k3s
+: 1793895585:0;ssh-copy-id -i ~/.ssh/master-k3s.pub admin@w2k3s
+: 1793895635:0;ll
+: 1793895644:0;rm pub.key
+: 1793895644:0;ll
+: 1793895646:0;ls .ssh
+: 1793895654:0;cat .ssh/master-k3s.pub
+: 1793895680:0;ssh-copy-id -i master-k3s.pub admin@w1k3s
+: 1793895690:0;ssh-copy-id -i ~/.ssh/master-k3s.pub admin@w1k3s
+: 1793895791:0;ping w1k3s
+: 1793895794:0;ping w2k3s
+: 1793895798:0;ssh-copy-id -i ~/.ssh/master-k3s.pub admin@w2k3s
+: 1793895835:0;ll
+: 1793895867:0;echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBhEWrYpMmz1BafNtOHBENiNJhkUkTuKrgcQNhLMFHW8 datenmaniak@gmail.com" | tee -a pub.key
+: 1793895868:0;ll
+: 1793895879:0;ssh -i pub.key admin@w1k3s
+: 1793895889:0;chmod 644 pub.key
+: 1793895890:0;ssh -i pub.key admin@w1k3s
+: 1793895898:0;ls -lpa
+: 1793895900:0;ll
+: 1793895906:0;chmod 0644 pub.key
+: 1793895909:0;ll
+: 1793895915:0;ssh -i pub.key admin@w1k3s
+: 1793895927:0;ls -lpa
+: 1793895928:0;ll
+: 1793895936:0;cat pub.key
+: 1793895952:0;mv datenmaniak.pub
+: 1793895965:0;mv pub.key datenmaniak.pub
+: 1793895967:0;ll
+: 1793895975:0;ssh -i datenmaniak.pub admin@w1k3s
+: 1793895980:0;ssh -i ./datenmaniak.pub admin@w1k3s
+: 1793895996:0;cat datenmaniak.pub
+: 1793896032:0;vi datenmaniak
+: 1793896044:0;ll
+: 1793896051:0;rm datenmaniak.pub
+: 1793896056:0;ssh -i ./datenmaniak admin@w1k3s
+: 1793896064:0;chmod 0644 datenmaniak
+: 1793896065:0;ssh -i ./datenmaniak admin@w1k3s
+: 1793896076:0;ll
+: 1793896082:0;ls .ssh
+: 1793896095:0;mv datenmaniak .ssh
+: 1793896109:0;ssh -i ~/.ssh/datenmaniak admin@w1k3s
+: 1793896157:0;ll
+: 1793896161:0;rm .ssh/datenmaniak
+: 1793896161:0;ll
+: 1793896168:0;cat .ssh/master-k3s.pub
+: 1793896287:0;ssh -i ~/.ssh/master-k3s admin@w1k3s
+: 1793896326:0;ssh-copy-id -i ~/.ssh/master-k3s.pub admin@w1k3s
+: 1793896330:0;ssh -i ~/.ssh/master-k3s admin@w1k3s
+: 1793896365:0;ssh  admin@w1k3s
+: 1793896382:0;ll
+: 1793896384:0;fwla
+: 1793896387:0;ll
+: 1793896392:0;cat open-port-k3s
+: 1793896622:0;fwla
+: 1793896660:0;fwhelp
+: 1793896681:0;fw-prp 8472 tcp
+: 1793896690:0;fw-pap 8472 udp
+: 1793896696:0;fwla
+: 1793896717:0;fw-prp 51820 tcp
+: 1793896725:0;fw-prp 51821 tcp
+: 1793896745:0;fw-pap 51820 udp
+: 1793896749:0;fw-pap 51821 udp
+: 1793896751:0;fwla
+: 1793897397:0;sudo ls -l /var/lib/kubelet/plugins/driver.longhorn.io/csi.sock
+: 1793897408:0;ls -ld /var/lib/kubelet/plugins_registry/
+: 1793897582:0;fwla
+: 1793897612:0;lsmod | grep br_netfilter
+: 1793897677:0;sysctl net.bridge.bridge-nf-call-iptables
+: 1793897707:0;lsmod | grep br_netfilter
+: 1793897710:0;sysctl net.bridge.bridge-nf-call-iptables
+: 1793897757:0;v verificar-modules-kernel
+: 1793897901:0;cat verificar-modules-kernel
+: 1793898003:0;ll
+: 1793898282:0;ip link show | grep flannel
+: 1793898357:0;v open-port-k3s
+: 1793899432:0;sudo systemctl status iscsid && sudo systemctl status iscsi
+: 1793899459:0;systemctl is-active iscsid
+: 1793899483:0;systemctl is-active iscsid && systemctl is-active iscsi
+: 1793899711:0;sudo systemctl status iscsid && sudo systemctl status iscsi
+: 1793899720:0;sudo systemctl status iscsid && sudo systemctl status iscsi --no-pager
+: 1793901260:0;sudo cat /var/lib/rancher/k3s/server/cred/encryption-config.json 
+: 1793901542:0;htop
+: 1793901551:0;df -h
+: 1793901567:0;sudo ls -ldZ /data/k3s-storage
+: 1793901575:0;sudo ls -ldZ /data/k3s-storage/
+: 1793901580:0;sudo ls -ladZ /data/k3s-storage/
+: 1793901590:0;du -chls /data/k3s-storage
+: 1793903399:0;df -h
+: 1793903760:0;btop
+: 1793903764:0;htop
+: 1793911221:0;ll
+: 1793911503:0;fw-all
+: 1793911510:0;fwla
+: 1793911807:0;showmount  -e tinynas
+: 1793912508:0;d f-h
+: 1793912513:0;df -h
+: 1793912977:0;rpm -q nfs-utils
+: 1793913124:0;showmount  -e tinynas
+: 1793918822:0;chedif
+: 1793918828:0;funalias
+: 1793918841:0;chhelp
+: 1793918856:0;cat ~/.zshrc
+: 1793918867:0;:q
+: 1793918874:0;cat ~/.zsh_aliases
+: 1793918878:0;ll
+: 1793918882:0;chhelp
+: 1793918889:0;chea-zsh
+: 1793918896:0;chea-alias
+: 1793918904:0;chea-his
+: 1793918916:0;chedif
+: 1793918921:0;chhelp
+: 1793918934:0;chea-his
