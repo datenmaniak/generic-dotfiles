@@ -11,9 +11,9 @@ starship = "latest"
 eza = "latest"
 
 node = "lts"
-python = "3.12"
+#python = "3.12"
 go = "latest"
-codex = "latest"
+#codex = "latest"
 
 neovim = "latest"
 
