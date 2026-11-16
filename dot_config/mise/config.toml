@@ -10,7 +10,7 @@ bat = "latest"
 starship = "latest"
 eza = "latest"
 
-node = "lts"
+#node = "lts"
 #python = "3.12"
 go = "latest"
 #codex = "latest"
